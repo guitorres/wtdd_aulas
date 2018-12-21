@@ -69,7 +69,11 @@ def fix_start(s):
 # Assume a and b are length 2 or more.
 def mix_up(a, b):
     # +++your code here+++
-    return
+    two_a = a[:2]
+    two_b = b[:2]
+    mix_a = a.replace(two_a, two_b)
+    mix_b = b.replace(two_b, two_a)
+    return '{} {}'.format(mix_a, mix_b)
 
 
 # Provided simple test() function used in main() to print
