@@ -38,7 +38,11 @@ def donuts(count):
 # is less than 2, return instead the empty string.
 def both_ends(s):
     # +++your code here+++
-    return
+    if len(s) < 2:
+        result = ''
+    else:
+        result = '{}{}'.format(s[:2], s[-2:])
+    return result
 
 
 # C. fix_start
