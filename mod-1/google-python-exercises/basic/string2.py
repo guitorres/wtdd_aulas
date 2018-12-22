@@ -18,7 +18,13 @@
 # Return the resulting string.
 def verbing(s):
     # +++your code here+++
-    return
+    if len(s) < 3:
+        result = s
+    elif s[-3:] == 'ing':
+        result = '{}{}'.format(s, 'ly')
+    else:
+        result = '{}{}'.format(s, 'ing')
+    return result
 
 
 # E. not_bad
