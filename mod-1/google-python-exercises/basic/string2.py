@@ -50,8 +50,18 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
+    def begin_end(s):    
+        s_size = len(s)
+        begin = int(s_size/2) + (s_size % 2)
+        end = int(s_size/2)
+        return begin,end
+
     # +++your code here+++
-    return
+    begin_a, end_a = begin_end(a) 
+    begin_b, end_b = begin_end(b)
+    result = '{}{}{}{}'
+    result = result.format( a[:begin_a], b[:begin_b], a[-end_a:], b[-end_b:] )
+    return result
 
 
 # Simple provided test() function used in main() to print
