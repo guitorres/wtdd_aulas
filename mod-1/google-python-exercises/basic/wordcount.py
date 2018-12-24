@@ -37,7 +37,7 @@ print_words() and print_top().
 
 """
 
-import sys
+import sys, collections
 
 
 # +++your code here+++
@@ -45,7 +45,20 @@ import sys
 # You could write a helper utility function that reads a file
 # and builds and returns a word/count dict for it.
 # Then print_words() and print_top() can just call the utility function.
+def words_count(words):
+    return collections.Counter(words)
+def get_dict_value(d):
+    return d[-1]
 
+def print_words(filename):
+    words = open(filename, 'r').read().lower().split()
+    print(words_count(words))
+
+def print_top(filename):
+    words = open(filename, 'r').read().lower().split()    
+    words = words_count(words)
+    sorted_by_value = sorted(words.items(), key=get_dict_value, reverse=True)
+    print(sorted_by_value[:20])
 ###
 
 # This basic command line argument parsing code is provided and
