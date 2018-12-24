@@ -60,8 +60,11 @@ def mimic_dict(filename):
 def print_mimic(mimic_dict, word):
     """Given mimic dict and start word, prints 200 random words."""
     # +++your code here+++  
-    #for i in range(0
-    return
+    for i in range(200):
+        print(word)
+        list_word = mimic_dict.get(word) or mimic_dict.get('')
+        word = random.choice(list_word)            
+    return 
 
 
 # Provided main(), calls mimic_dict() and mimic()
