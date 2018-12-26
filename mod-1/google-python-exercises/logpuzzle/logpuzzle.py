@@ -25,6 +25,16 @@ def read_urls(filename):
     Screens out duplicate urls and returns the urls sorted into
     increasing order."""
     # +++your code here+++
+    lines = open(filename, 'r').readlines()
+    links = []
+    for line in lines:
+        line_split = line.split(' ')
+        host = line_split[0]
+        img = line_split[6]
+        if ('.png' in img) or ('.jpg' in img):
+            links.append('{}{}'.format(host, img))
+            print('{}{}'.format(host, img))
+    return links
 
 
 def download_images(img_urls, dest_dir):
@@ -59,4 +69,5 @@ def main():
 
 
 if __name__ == '__main__':
+    read_urls('place_code.google.com')
     main()
