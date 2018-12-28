@@ -8,6 +8,7 @@
 
 # Additional basic string exercises
 
+from math import ceil
 
 # D. verbing
 # Given a string, if its length is at least 3,
@@ -53,8 +54,11 @@ def front_back(a, b):
     # +++your code here+++
     def half(s):
         return len(s) // 2 + len(s) % 2
-    half_a, half_b = half(a), half(b)
-    return '{}{}{}{}'.format( a[:half_a], b[:half_b], a[half_a:], b[half_b:] )
+    def front(s):
+        return s[:half(s)]
+    def back(s):
+        return s[half(s):]
+    return '{}{}{}{}'.format( front(a), front(b), back(a), back(b) )
 
 
 # Simple provided test() function used in main() to print
