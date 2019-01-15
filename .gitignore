@@ -2,3 +2,4 @@
 *checkpoint.ipynb
 *.pyc
 __pycache__
+.vscode/*
