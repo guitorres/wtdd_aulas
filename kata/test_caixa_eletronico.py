@@ -20,12 +20,12 @@ import unittest
 
 def sacar(valor):
     notas_disponiveis = [100, 50, 20, 10]
-    copia_valor = valor
+    valor_descontado = valor
     saque = []
     while (sum(saque) != valor):
         for nota in notas_disponiveis:
-            if nota <= copia_valor:
-                copia_valor = copia_valor - nota
+            if nota <= valor_descontado:
+                valor_descontado -= nota
                 saque.append(nota)
                 break
     return saque
