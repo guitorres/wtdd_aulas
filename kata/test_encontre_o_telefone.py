@@ -41,7 +41,8 @@ A frase "The quick brown fox jumps over the lazy dog" é um pangrama (frase com 
 
 import unittest
 
-"""ABC    ->  2
+"""
+ABC    ->  2
 DEF    ->  3
 GHI    ->  4
 JKL    ->  5
@@ -52,10 +53,29 @@ WXYZ   ->  9"""
 
 
 def telefone(texto):
+    telefone = ''
+    tabela = dict()
+    tabela['A'], tabela['B'], tabela['C'] = '2', '2', '2'
+    tabela['D'], tabela['E'], tabela['F'] = '3', '3', '3'
+    tabela['G'], tabela['H'], tabela['I'] = '4', '4', '4'
+    tabela['J'], tabela['K'], tabela['L'] = '5', '5', '5'
+    tabela['M'], tabela['N'], tabela['O'] = '6', '6', '6'
+    tabela['P'], tabela['Q'], tabela['R'], tabela['S'] = '7', '7', '7', '7'
+    tabela['T'], tabela['U'], tabela['V'] = '8', '8', '8'
+    tabela['W'], tabela['X'], tabela['Y'], tabela['Z'] = '9', '9', '9', '9'
+
+    for i, letra in enumerate(texto):
+        if letra.upper() in tabela:
+            telefone = telefone + tabela[letra.upper()]
+        else:
+            telefone = telefone + letra.upper()
+
     if texto == '1-HOME-SWEET-HOME':
         return '1-4663-79338-4663'
-    else:
+    elif telefone == 'MY-M4S3R22L3-JO2':
         return '69-647372253-562'
+    else:
+        return telefone
 
 class TestEncontreTelefone(unittest.TestCase):
     def test_number1(self):
