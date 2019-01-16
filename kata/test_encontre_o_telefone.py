@@ -70,12 +70,7 @@ def telefone(texto):
         else:
             telefone = telefone + letra.upper()
 
-    if texto == '1-HOME-SWEET-HOME':
-        return '1-4663-79338-4663'
-    elif telefone == 'MY-M4S3R22L3-JO2':
-        return '69-647372253-562'
-    else:
-        return telefone
+    return telefone
 
 class TestEncontreTelefone(unittest.TestCase):
     def test_number1(self):
