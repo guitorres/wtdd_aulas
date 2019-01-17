@@ -41,19 +41,9 @@ A frase "The quick brown fox jumps over the lazy dog" é um pangrama (frase com 
 
 import unittest
 
-"""
-ABC    ->  2
-DEF    ->  3
-GHI    ->  4
-JKL    ->  5
-MNO    ->  6
-PQRS    ->  7
-TUV    ->  8
-WXYZ   ->  9"""
-
 
 def telefone(texto):
-    telefone = ''
+    telefone = texto.upper()
     tabela = dict()
     tabela['A'], tabela['B'], tabela['C'] = '2', '2', '2'
     tabela['D'], tabela['E'], tabela['F'] = '3', '3', '3'
@@ -64,11 +54,9 @@ def telefone(texto):
     tabela['T'], tabela['U'], tabela['V'] = '8', '8', '8'
     tabela['W'], tabela['X'], tabela['Y'], tabela['Z'] = '9', '9', '9', '9'
 
-    for i, letra in enumerate(texto):
-        if letra.upper() in tabela:
-            telefone = telefone + tabela[letra.upper()]
-        else:
-            telefone = telefone + letra.upper()
+    for letra in texto.upper():
+        if letra in tabela:
+            telefone = telefone.replace(letra, tabela[letra])
 
     return telefone
 
