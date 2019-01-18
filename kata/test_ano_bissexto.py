@@ -30,28 +30,31 @@ Escreva uma função que determina se um determinado ano informado é bissexto o
 
 import unittest
 
-def ano_bissexto(ano):
-    if ano in (1742, 1889):
-        return False
+class Ano():
+    def __init__(self, ano):
+        self.ano = ano
 
-    return True
+
+    def _divisivel(self, por):
+        return self.ano % por == 0
+
+
+    def bissexto(self):
+        return self._divisivel(4) and (not self._divisivel(100) or self._divisivel(400))
 
 
 class TestAnoBissexto(unittest.TestCase):
-    def test_1600(self):
-        self.assertTrue(ano_bissexto(1600))
+    def test_bissexto(self):
+        anos = [1600, 1732, 1888, 1944, 2008]
+        for ano in anos:
+            self.assertTrue(Ano(ano).bissexto())
 
 
-    def test_1732(self):
-        self.assertTrue(ano_bissexto(1732))
-
-
-    def test_1742(self):
-        self.assertFalse(ano_bissexto(1742))
-
-
-    def test_1889(self):
-        self.assertFalse(ano_bissexto(1889))
+    def test_not_bissexto(self):
+        anos = [1742, 1889, 1951, 2011]
+        for ano in anos:
+            print(Ano(ano).bissexto())
+            self.assertFalse(Ano(ano).bissexto())
 
 
 if __name__ == '__main__':

@@ -61,11 +61,13 @@ def telefone(texto):
     return telefone
 
 class TestEncontreTelefone(unittest.TestCase):
-    def test_number1(self):
-        self.assertEqual('1-4663-79338-4663', telefone('1-HOME-SWEET-HOME'))
-
-    def test_number2(self):
-        self.assertEqual('69-647372253-562', telefone('MY-MISERABLE-JOB'))
+    def test_number(self):
+        numbers = (
+            ('1-4663-79338-4663', '1-HOME-SWEET-HOME'),
+            ('69-647372253-562', 'MY-MISERABLE-JOB')
+        )
+        for number, text_number in numbers:
+            self.assertEqual(number, telefone(text_number))
 
 if __name__ == '__main__':
     unittest.main()
