@@ -1,0 +1,7 @@
+. qualquer caractere
+\d somente números
+\D negação de \d
+\s espaço, quebra linha, tab
+\S negação de \s
+[A-Za-z_] == \w caracteres
+\W negação de \w
